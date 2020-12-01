@@ -7,21 +7,35 @@
  */
 
 import React from 'react';
-import {NativeRouter as Router, Route, Switch} from 'react-router-native';
-import OutfitList from './component/OutfitList';
-import About from './component/About';
-import TopHeader from './component/Header';
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
+import AboutContent from './component/AboutContent';
+import AboutFloor from './component/AboutFloor';
+import AboutFooter from './component/AboutFooter';
+import AboutImgList from './component/AboutImgList';
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={TopHeader} />
-        <Route path="/img" component={OutfitList} />
-        <Route path="/about" component={About} />
-      </Switch>
-    </Router>
+    <>
+      <ScrollView style={styles.container}>
+        <AboutContent />
+        <AboutFloor />
+        <AboutFooter />
+        <AboutImgList />
+      </ScrollView>
+    </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fbe2d5',
+    paddingVertical: 15,
+  },
+});
 
 export default App;

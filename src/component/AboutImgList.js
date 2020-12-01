@@ -6,17 +6,18 @@ import {
   Image,
   FlatList,
   Dimensions,
+  Text,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import axios from '../common/axios';
 
 const {width} = Dimensions.get('window');
 const cols = 2;
-const vMargin = 20;
-const hMargin = 25;
+const vMargin = 10;
+const hMargin = 15;
 const cellWH = (width - 2 * vMargin - 15) / cols;
 
-const OutfitList = () => {
+const AboutImgList = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const OutfitList = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={{ fontSize: 30 }}>PoPular Outfits</Text>
       <FlatList
         numColumns={2}
         data={data}
@@ -61,14 +63,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
-    paddingVertical: 15,
+    paddingVertical: 30,
+    paddingHorizontal: 20,
   },
 
   listContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
   },
 
   item: {
@@ -78,10 +80,9 @@ const styles = StyleSheet.create({
   },
 
   img: {
-    width: cellWH,
-    height: cellWH,
-    borderRadius: 5,
+    width: cellWH - 10,
+    height: cellWH - 10,
   },
 });
 
-export default OutfitList;
+export default AboutImgList;
