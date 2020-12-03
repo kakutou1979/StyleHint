@@ -5,7 +5,7 @@ export default class OutfitStore {
   constructor() {
     makeAutoObservable(this);
   }
-  outfitList = [];
+  outfitList = 123;
   setOutfitList = (list) => {
     this.outfitList = list;
   };
@@ -14,6 +14,7 @@ export default class OutfitStore {
     const response = await axios.get(
       '/v1/jp/hashtag?result_limit=20&page=1&ie_cache_fix=1605685192594',
     );
-    this.setOutfitList(response.data.hashtag_list);
+    // this.setOutfitList(response.data.hashtag_list);
+    this.setOutfitList(456)
   };
 }

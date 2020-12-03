@@ -9,7 +9,6 @@ import {
   Text,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import axios from '../common/axios';
 import {observer} from 'mobx-react';
 import StoreContext from "../context";
 
@@ -23,20 +22,8 @@ const AboutImgList = () => {
   const {outfitStore} = useContext(StoreContext);
   const [data, setData] = useState([]);
   useEffect(() => {
-    // fetchData();
-    outfitStore.fetchOutfitList();
-  }, [data]);
-
-  const fetchData = () => {
-    axios
-      .get('/v1/jp/hashtag?result_limit=20&page=1&ie_cache_fix=1605685192594')
-      .then((response) => {
-        setData(response.data.hashtag_list);
-      })
-      .catch((error) => {
-        console.log(error.messages);
-      });
-  };
+    console.log("hello", outfitStore)
+  }, [outfitStore]);
 
   const renderItem = ({item, index}) => {
     return (
@@ -51,8 +38,8 @@ const AboutImgList = () => {
 
   return (
     <View style={styles.container}>
-      <Text>{JSON.stringify(outfitStore.outfitList)}</Text>
-      <Text style={{fontSize: 30}}>PoPular Outfits</Text>
+      <Text>Outfit:{JSON.stringify(outfitStore)}</Text>
+      <Text style={{fontSize: 30}}>Popular Outfits</Text>
       <FlatList
         numColumns={2}
         data={data}

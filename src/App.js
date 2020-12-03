@@ -16,7 +16,7 @@ import StoreContext from './context';
 
 const App = () => {
   return (
-    <StoreContext.Provider>
+    <StoreContext.Provider value={StoreContext}>
       <ScrollView style={styles.container}>
         <AboutContent />
         <AboutFloor />
