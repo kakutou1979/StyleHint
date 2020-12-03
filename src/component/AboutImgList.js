@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
   StyleSheet,
   View,
@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import axios from '../common/axios';
+import OutfitStore from '../store/OutfitStore';
+import {observer} from 'mobx-react';
+import OutfitContext from '../context/index'
 
 const {width} = Dimensions.get('window');
 const cols = 2;
@@ -18,10 +21,11 @@ const hMargin = 15;
 const cellWH = (width - 2 * vMargin - 15) / cols;
 
 const AboutImgList = () => {
+  const outfitStore = useContext(OutfitStore);
   const [data, setData] = useState([]);
-
   useEffect(() => {
-    fetchData();
+    // fetchData();
+    outfitStore.fetchOutfitList();
   }, [data]);
 
   const fetchData = () => {
@@ -48,7 +52,8 @@ const AboutImgList = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30 }}>PoPular Outfits</Text>
+      <Text>{JSON.stringify(outfitStore.outfitList)}</Text>
+      <Text style={{fontSize: 30}}>PoPular Outfits</Text>
       <FlatList
         numColumns={2}
         data={data}
@@ -85,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AboutImgList;
+export default observer(AboutImgList);

@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {StyleSheet, View, Image, Text} from 'react-native';
 
 const AboutFloor = () => {
   return (
@@ -16,10 +15,10 @@ const AboutFloor = () => {
           />
         </View>
         <View style={styles.textColumnContainer}>
-          <Text style={{ lineHeight: 30 }}>Download the app now and get</Text>
+          <Text style={{lineHeight: 30}}>Download the app now and get</Text>
           <View style={styles.textRowContainer}>
-            <Text style={{ fontSize: 10 }}>$</Text>
-            <Text style={{ fontSize: 30 }}>3</Text>
+            <Text style={{fontSize: 10}}>$</Text>
+            <Text style={{fontSize: 30}}>3</Text>
             <Text> off your next purchase</Text>
           </View>
         </View>
