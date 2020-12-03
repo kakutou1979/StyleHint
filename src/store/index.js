@@ -1,9 +1,9 @@
-import {configure} from "mobx";
-import OutfitStore from "./OutfitStore";
+import {configure} from 'mobx';
+import OutfitStore from './OutfitStore';
 
-configure({enforceActions: "always"});
+configure({enforceActions: 'always'});
 
 const store = {
-    outfitStore: new OutfitStore(),
+  outfitStore: new OutfitStore(),
 };
-export default store
+export default store;

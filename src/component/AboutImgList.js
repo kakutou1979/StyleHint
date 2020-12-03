@@ -9,7 +9,7 @@ import {
   Text,
 } from 'react-native';
 import {observer} from 'mobx-react';
-import StoreContext from "../context";
+import StoreContext from '../context';
 
 const {width} = Dimensions.get('window');
 const cols = 2;
@@ -21,7 +21,7 @@ const AboutImgList = () => {
   const {outfitStore} = useContext(StoreContext);
   const [data, setData] = useState([]);
   useEffect(() => {
-    console.log("hello", outfitStore)
+    console.log('hello', outfitStore);
     outfitStore.fetchOutfitList();
   }, []);
 

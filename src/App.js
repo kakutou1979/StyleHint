@@ -13,7 +13,7 @@ import AboutFloor from './component/AboutFloor';
 import AboutFooter from './component/AboutFooter';
 import AboutImgList from './component/AboutImgList';
 import StoreContext from './context';
-import store from "./store";
+import store from './store';
 
 const App = () => {
   return (
