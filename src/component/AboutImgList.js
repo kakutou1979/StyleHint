@@ -8,7 +8,6 @@ import {
   Dimensions,
   Text,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {observer} from 'mobx-react';
 import StoreContext from "../context";
 
@@ -23,7 +22,8 @@ const AboutImgList = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     console.log("hello", outfitStore)
-  }, [outfitStore]);
+    outfitStore.fetchOutfitList();
+  }, []);
 
   const renderItem = ({item, index}) => {
     return (
@@ -38,11 +38,11 @@ const AboutImgList = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Outfit:{JSON.stringify(outfitStore)}</Text>
+      {/*<Text>Outfit:{JSON.stringify(outfitStore)}END</Text>*/}
       <Text style={{fontSize: 30}}>Popular Outfits</Text>
       <FlatList
         numColumns={2}
-        data={data}
+        data={outfitStore.outfitList}
         renderItem={renderItem}
         keyExtractor={(item, index) => index}
         contentContainerStyle={styles.listContainer}
@@ -53,7 +53,7 @@ const AboutImgList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: '#ffffff',
     paddingVertical: 30,
     paddingHorizontal: 20,
   },

@@ -7,22 +7,23 @@
  */
 
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import AboutContent from './component/AboutContent';
 import AboutFloor from './component/AboutFloor';
 import AboutFooter from './component/AboutFooter';
 import AboutImgList from './component/AboutImgList';
 import StoreContext from './context';
+import store from "./store";
 
 const App = () => {
   return (
-    <StoreContext.Provider value={StoreContext}>
-      <ScrollView style={styles.container}>
+    <StoreContext.Provider value={store}>
+      <View style={styles.container}>
         <AboutContent />
         <AboutFloor />
         <AboutFooter />
         <AboutImgList />
-      </ScrollView>
+      </View>
     </StoreContext.Provider>
   );
 };
