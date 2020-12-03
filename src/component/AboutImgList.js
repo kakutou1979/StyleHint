@@ -10,9 +10,8 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import axios from '../common/axios';
-import OutfitStore from '../store/OutfitStore';
 import {observer} from 'mobx-react';
-import OutfitContext from '../context/index'
+import StoreContext from "../context";
 
 const {width} = Dimensions.get('window');
 const cols = 2;
@@ -21,7 +20,7 @@ const hMargin = 15;
 const cellWH = (width - 2 * vMargin - 15) / cols;
 
 const AboutImgList = () => {
-  const outfitStore = useContext(OutfitStore);
+  const {outfitStore} = useContext(StoreContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     // fetchData();

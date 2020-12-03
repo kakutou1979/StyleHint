@@ -1,4 +1,5 @@
 import React from 'react';
-import OutfitStore from '../store/OutfitStore';
+import store from "../store";
 
-export const OutfitContext = React.createContext(OutfitStore);
+const StoreContext = React.createContext(store);
+export default StoreContext
